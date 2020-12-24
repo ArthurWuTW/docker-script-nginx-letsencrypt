@@ -39,7 +39,9 @@ RUN apt-get update \
         nginx \
         vim \
         net-tools \
-        software-properties-common
+        software-properties-common \
+        certbot \
+        python3-certbot-nginx
 
 COPY enter-container-shell \
     infinite-loop \

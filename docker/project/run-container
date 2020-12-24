@@ -9,6 +9,12 @@ PORT_MAPPING_OPTS="\
     -p 7777:7777  \
 "
 
+NGINX_OPTS="\
+     --volume $HOME/Desktop/host_nginx/nginx:/etc/nginx \
+"
+CERTBOT_OPTS="\
+     --volume $HOME//Desktop/host_nginx/letsencrypt:/etc/letsencrypt \
+"
 GRAPHICS_OPTS="\
     --env DISPLAY=$DISPLAY \
     --volume /tmp/.X11-unix:/tmp/.X11-unix \
@@ -42,6 +48,8 @@ run_container() {
         $EXTRA_CONTAINER_OPTS \
         $GRAPHICS_OPTS \
         $PORT_MAPPING_OPTS \
+        $NGINX_OPTS \
+        $CERTBOT_OPTS \
         $IMAGE_NAME \
         $COMMAND || exit_on_error
 }
